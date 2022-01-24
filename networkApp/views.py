@@ -14,7 +14,7 @@ from django.urls import reverse
 from .models import User, UserFollowing, Posts
 
 class PostForm(forms.Form):
-    content = forms.CharField(label="Your post", max_length=300, widget=forms.Textarea)
+    content = forms.CharField(label="", max_length=300, widget=forms.Textarea(attrs={"rows":5, "cols":40, "style": 'font-size: small'}))
 
 
 def index(request):
