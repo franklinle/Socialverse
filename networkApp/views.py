@@ -22,15 +22,15 @@ def index(request):
     if request.method == "POST":
         form = PostForm(request.POST)
 
-        # Check if form is valid
+        # check if form is valid
         if form.is_valid():
 
-            # Check if the user is logged in
+            # check if the user is logged in
             if request.user.is_authenticated == False:
                 messages.error(request, "Please register or log in to create a post")
                 return HttpResponseRedirect(reverse("index"))
             else:
-                # Save new post in the db, model already saves datetime
+                # save new post in the db, model already saves datetime
                 currentUser = request.user
                 content = form.cleaned_data["content"]
                 newPost = Posts(user_id=currentUser.id,content=content)
