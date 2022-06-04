@@ -168,80 +168,89 @@
   }
 </script>
 {% endblock %} {% block body %}
-<h1 id="profileUser">{{ profUser }}</h1>
+<div id="new-post-section-background">
+  <h3 id="profileUser">{{ profUser }}</h3>
 
-{% if followButton %}
-<button id="follow-button" type="button" class="btn btn-secondary">
-  {% if following %} Following {% else %} Follow {% endif %}
-</button>
-{% endif %}
+  {% if followButton %}
+  <button id="follow-button" type="button" class="btn btn-secondary">
+    {% if following %} Following {% else %} Follow {% endif %}
+  </button>
+  {% endif %}
 
-<div>
-  <div>Following <span id="following-number">{{ followingCount }}</span></div>
-  <div>Followers <span id="followers-number">{{ followerCount }}</span></div>
-</div>
-
-<h2>{{ profUser }}'s posts</h2>
-<div class="posts-section">
-  {% for post in page_obj %}
-  <div id="post-{{ post.id }}" class="post">
-    <p>
-      <a href="{% url 'profile' post.user %}" data-url="{% url 'editPost' %}"
-        ><strong>{{ post.user }}</strong></a
-      >
-    </p>
-    {% if currentUserID == post.user_id %}
-    <div>
-      <a id="{{ post.id }}" class="edit" onClick="javascript:editPost(this.id)"
-        >Edit</a
-      >
-    </div>
-    {% endif %}
-
-    <div id="content-{{ post.id }}" class="post-content">
-      {{ post.content }}
-    </div>
-
-    <div class="text-muted">{{ post.time_posted }}</div>
-
-    <div>
-      <button
-        id="like-{{ post.id }}"
-        class="like-button"
-        value="{{ post.id }}"
-        type="button"
-      >
-        ❤️
-      </button>
-
-      <span id="like_count_{{post.id}}" class="text-muted"
-        >{{ post.like_count }}</span
-      >
-    </div>
+  <div>
+    <h6>Following <span id="following-number">{{ followingCount }}</span></h6>
+    <h6>Followers <span id="followers-number">{{ followerCount }}</span></h6>
   </div>
-  {% endfor %}
+
+  <!-- <h6>{{ profUser }}'s posts</h6> -->
+  <div class="posts-section">
+    <div class="posts-section">
+      {% for post in page_obj %}
+      <div id="post-{{ post.id }}" class="post">
+        <p>
+          <a
+            href="{% url 'profile' post.user %}"
+            data-url="{% url 'editPost' %}"
+            ><strong>{{ post.user }}</strong></a
+          >
+        </p>
+
+        <div id="content-{{ post.id }}" class="post-content">
+          {{ post.content }}
+          <div class="text-muted">{{ post.time_posted }}</div>
+        </div>
+
+        {% if currentUserID == post.user_id %}
+        <div>
+          <a
+            id="{{ post.id }}"
+            class="edit"
+            onClick="javascript:editPost(this.id)"
+            >Edit</a
+          >
+        </div>
+        {% endif %}
+
+        <div>
+          <button
+            id="like-{{ post.id }}"
+            class="like-button"
+            value="{{ post.id }}"
+            type="button"
+          >
+            ♡
+          </button>
+
+          <span id="like_count_{{post.id}}" class="text-muted"
+            >{{ post.like_count }}</span
+          >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <nav class="my-pagenav" aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="{% url 'profile' profUser %}?page={{page_obj.previous_page_number}}"
+            >Previous</a
+          >
+        </li>
+        {% endif %} {% if page_obj.has_next %}
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="{% url 'profile' profUser %}?page={{page_obj.next_page_number}}"
+            >Next</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    {% endblock %}
+  </div>
 </div>
-
-<nav class="my-pagenav" aria-label="Page navigation example">
-  <ul class="pagination">
-    {% if page_obj.has_previous %}
-    <li class="page-item">
-      <a
-        class="page-link"
-        href="{% url 'profile' profUser %}?page={{page_obj.previous_page_number}}"
-        >Previous</a
-      >
-    </li>
-    {% endif %} {% if page_obj.has_next %}
-    <li class="page-item">
-      <a
-        class="page-link"
-        href="{% url 'profile' profUser %}?page={{page_obj.next_page_number}}"
-        >Next</a
-      >
-    </li>
-    {% endif %}
-  </ul>
-</nav>
-
-{% endblock %}

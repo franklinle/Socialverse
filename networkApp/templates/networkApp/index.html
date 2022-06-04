@@ -122,62 +122,67 @@
     contentElement.appendChild(buttonDiv);
   }
 </script>
+
 {% endblock %} {% block body %}
-<h1>Home</h1>
+<div id="new-post-section-background">
+  <h3>Home</h3>
+  <div id="new-post-section">
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-danger" role="alert">{{ message }}</div>
+    {% endfor %} {% endif %}
 
-<div id="new-post-section">
-  {% if messages %} {% for message in messages %}
-  <div class="alert alert-danger" role="alert">{{ message }}</div>
-  {% endfor %} {% endif %}
-
-  <h2>
-    What's on your mind?
-    <form action="/" method="post">
-      {% csrf_token %} {{ newPostForm }}
-      <h3>
-        <input class="btn btn-secondary" type="submit" value="Submit" />
-      </h3>
-    </form>
-  </h2>
-</div>
-
-<div class="posts-section">
-  {% for post in page_obj %}
-  <div id="post-{{ post.id }}" class="post">
-    <p>
-      <a href="{% url 'profile' post.user %}" data-url="{% url 'editPost' %}"
-        ><strong>{{ post.user }}</strong></a
-      >
-    </p>
-
-    <div id="content-{{ post.id }}" class="post-content">
-      {{ post.content }}
-    </div>
-
-    <div class="text-muted">{{ post.time_posted }}</div>
-    {% if currentUserID == post.user_id %}
-    <div>
-      <a id="{{ post.id }}" class="edit" onClick="javascript:editPost(this.id)"
-        >Edit</a
-      >
-    </div>
-    {% endif %}
-
-    <div>
-      <button
-        id="like-{{ post.id }}"
-        class="like-button"
-        value="{{ post.id }}"
-        type="button"
-      >
-        👍
-      </button>
-
-      <span id="like_count_{{post.id}}" class="text-muted"
-        >{{ post.like_count }}</span
-      >
-    </div>
+    <h2>
+      What's on your mind?
+      <form action="/" method="post">
+        {% csrf_token %} {{ newPostForm }}
+        <h3>
+          <input class="btn btn-secondary" type="submit" value="Submit" />
+        </h3>
+      </form>
+    </h2>
   </div>
-  {% endfor %}
+
+  <div class="posts-section">
+    {% for post in page_obj %}
+    <div id="post-{{ post.id }}" class="post">
+      <p>
+        <a href="{% url 'profile' post.user %}" data-url="{% url 'editPost' %}"
+          ><strong>{{ post.user }}</strong></a
+        >
+      </p>
+
+      <div id="content-{{ post.id }}" class="post-content">
+        {{ post.content }}
+      </div>
+
+      <div class="text-muted">{{ post.time_posted }}</div>
+      {% if currentUserID == post.user_id %}
+      <div>
+        <a
+          id="{{ post.id }}"
+          class="edit"
+          onClick="javascript:editPost(this.id)"
+          >Edit</a
+        >
+      </div>
+      {% endif %}
+
+      <div>
+        <button
+          id="like-{{ post.id }}"
+          class="like-button"
+          value="{{ post.id }}"
+          type="button"
+        >
+          ♡
+        </button>
+
+        <span id="like_count_{{post.id}}" class="text-muted"
+          >{{ post.like_count }}</span
+        >
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}

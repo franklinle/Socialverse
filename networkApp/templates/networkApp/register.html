@@ -1,30 +1,55 @@
-{% extends "networkApp/layout.html" %}
+{% extends "networkApp/layout.html" %} {% block body %}
+<div id="new-post-section-background">
+  <h3>Register</h3>
 
-{% block body %}
+  {% if message %}
+  <div>{{ message }}</div>
+  {% endif %}
 
-    <h2>Register</h2>
+  <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <input
+        class="form-control"
+        autofocus
+        type="text"
+        name="username"
+        placeholder="Username"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="email"
+        name="email"
+        placeholder="Email Address"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        placeholder="Password"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="password"
+        name="confirmation"
+        placeholder="Confirm Password"
+      />
+    </div>
+    <h4>
+      <input class="btn btn-secondary" type="submit" value="Register" />
+    </h4>
+  </form>
 
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
+  <h4>Already have an account?</h4>
+  <h5>
+    <a href="{% url 'login' %}">Log In here.</a>
+  </h5>
 
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email Address">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
-        </div>
-        <input class="btn btn-secondary" type="submit" value="Register">
-    </form>
-
-    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
-
-{% endblock %}
+  {% endblock %}
+</div>

@@ -1,15 +1,6 @@
 /* sections */
-.body {
-  margin-right: 500px;
-  margin-left: 500px;
-}
-
-footer {
-  margin-top: auto;
-  background-color: black;
-  color: black;
-  text-align: center;
-  padding: 10px;
+body {
+  background-color: #0e0e10;
 }
 
 h1 {
@@ -19,13 +10,33 @@ h2 {
   text-align: center;
   font-size: 12px;
 }
+/* current page title */
+h3 {
+  color: white;
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+
+h5 {
+  text-align: center;
+  font-size: 12px;
+  color: #bf94ff;
+}
+
+h6 {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
 
 /* navigation bar */
 
 /* navbar text color */
-nav a {
-  padding-left: 100px;
-}
 
 .navbar-expand-lg {
   display: flex !important;
@@ -34,26 +45,39 @@ nav a {
 }
 
 .navbar-nav > li {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
-/* profile color */
+.navbar-custom {
+  background-color: #18181b;
+}
+
+/* profile name color */
 a {
-  color: black;
+  color: #bf94ff;
 }
 
 a:hover {
-  color: #1db954;
+  color: white;
+}
+
+/* profile color inverse */
+d {
+  color: white;
+}
+
+d:hover {
+  color: #bf94ff;
 }
 
 /* edit button */
 .edit {
-  color: blue !important;
+  color: white !important;
 }
 
 .edit:hover {
-  color: #25c488 !important;
+  color: #bf94ff !important;
 }
 
 /* Posts */
@@ -62,18 +86,26 @@ a:hover {
 }
 
 .post:hover {
-  background-color: rgb(76, 244, 76);
+  background-color: #1f1f23;
 }
 
 /* new post */
 #new-post-section {
+  color: white;
   border-radius: 30px;
   padding: 10px;
   border: 1px solid grey;
 }
 
+#new-post-section-background {
+  background-color: #0e0e10;
+  margin-right: 500px;
+  margin-left: 500px;
+}
+
 /* posted posts */
 .posts-section .post {
+  color: white;
   border-radius: 30px;
   padding: 15px;
   border: 1px solid grey;
@@ -82,4 +114,17 @@ a:hover {
 /* like button */
 .like-button {
   border-radius: 10px;
+}
+
+.follower-following {
+  text-align: center;
+}
+
+.center-column {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgb(29, 27, 27);
+  border-radius: 10px;
+  box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
 }
