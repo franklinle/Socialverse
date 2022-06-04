@@ -1,0 +1,85 @@
+/* sections */
+.body {
+  margin-right: 500px;
+  margin-left: 500px;
+}
+
+footer {
+  margin-top: auto;
+  background-color: black;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  font-size: 12px;
+}
+
+/* navigation bar */
+
+/* navbar text color */
+nav a {
+  padding-left: 100px;
+}
+
+.navbar-expand-lg {
+  display: flex !important;
+  justify-content: space-around;
+  flex-basis: auto;
+}
+
+.navbar-nav > li {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* profile color */
+a {
+  color: black;
+}
+
+a:hover {
+  color: #1db954;
+}
+
+/* edit button */
+.edit {
+  color: blue !important;
+}
+
+.edit:hover {
+  color: #25c488 !important;
+}
+
+/* Posts */
+.post {
+  margin-top: 20px;
+}
+
+.post:hover {
+  background-color: rgb(76, 244, 76);
+}
+
+/* new post */
+#new-post-section {
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+/* posted posts */
+.posts-section .post {
+  border-radius: 30px;
+  padding: 15px;
+  border: 1px solid grey;
+}
+
+/* like button */
+.like-button {
+  border-radius: 10px;
+}

@@ -1,10 +1,5 @@
 {% extends "networkApp/layout.html" %} {% block head %}
-<style>
-  h2 {
-    text-align: center;
-    font-size: 12px;
-  }
-</style>
+
 <script
   type="text/javascript"
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
@@ -162,10 +157,7 @@
     <div class="text-muted">{{ post.time_posted }}</div>
     {% if currentUserID == post.user_id %}
     <div>
-      <a
-        id="{{ post.id }}"
-        class="my-link"
-        onClick="javascript:editPost(this.id)"
+      <a id="{{ post.id }}" class="edit" onClick="javascript:editPost(this.id)"
         >Edit</a
       >
     </div>
@@ -188,27 +180,4 @@
   </div>
   {% endfor %}
 </div>
-
-<nav class="my-pagenav" aria-label="Page navigation example">
-  <ul class="pagination">
-    {% if page_obj.has_previous %}
-    <li class="page-item">
-      <a
-        class="page-link"
-        href="{% url 'index' %}?page={{page_obj.previous_page_number}}"
-        >Previous</a
-      >
-    </li>
-    {% endif %} {% if page_obj.has_next %}
-    <li class="page-item">
-      <a
-        class="page-link"
-        href="{% url 'index' %}?page={{page_obj.next_page_number}}"
-        >Next</a
-      >
-    </li>
-    {% endif %}
-  </ul>
-</nav>
-
 {% endblock %}

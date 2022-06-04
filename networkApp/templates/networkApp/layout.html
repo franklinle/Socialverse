@@ -1,33 +1,34 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
+  <!-- tab name -->
   <head>
     <title>{% block title %}Social Network{% endblock %}</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link href="{% static 'networkApp/style.css' %}" rel="stylesheet" />
   </head>
-  {% block head %}{% endblock %}
-  <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg navbar-custom">
-      <a class="navbar-brand" href="{% url 'index' %}">
-        <!-- <img src="{% static 'networkApp/organization.svg' %}" width="30" height="30" class="d-inline-block align-top" alt=""> -->
-        networkApp
-      </a>
+  <!-- tab name end -->
 
+  {% block head %}{% endblock %}
+
+  <!-- stylesheets -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+  />
+  <link href="{% static 'networkApp/styles.css' %}" rel="stylesheet" />
+  <!-- stylesheets end -->
+
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg">
       <div>
-        <ul class="navbar-nav mr-auto">
+        <ul class="nav navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">HOME</a>
+            <a class="nav-link" href="{% url 'index' %}">ALL</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'following' %}">FOR ME</a>
+            <a class="nav-link" href="{% url 'following' %}">FOR YOU</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">

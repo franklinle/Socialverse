@@ -192,10 +192,7 @@
     </p>
     {% if currentUserID == post.user_id %}
     <div>
-      <a
-        id="{{ post.id }}"
-        class="my-link"
-        onClick="javascript:editPost(this.id)"
+      <a id="{{ post.id }}" class="edit" onClick="javascript:editPost(this.id)"
         >Edit</a
       >
     </div>
