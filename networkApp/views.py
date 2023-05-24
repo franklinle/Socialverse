@@ -136,7 +136,7 @@ def following(request):
 
     # Pagination of posts
     # Sort the posts from most recent to oldest
-    allPosts = Posts.objects.filter(user__in=follower_ids).order_by('time_posted')
+    allPosts = Posts.objects.filter(user__in=follower_ids).order_by('-time_posted')
     paginator = Paginator(allPosts, 2) 
     page_number = request.GET.get('page', 1)
 
@@ -155,7 +155,7 @@ def profile(request, user):
     """ Profile page for a user """
     # Get posts for current user
     profileUserID = User.objects.get(username=user).id
-    userPosts = Posts.objects.filter(user_id=profileUserID)
+    userPosts = Posts.objects.filter(user_id=profileUserID).order_by('-time_posted')
 
     # Paginate user posts, ten per page
     paginator = Paginator(userPosts, 10)
