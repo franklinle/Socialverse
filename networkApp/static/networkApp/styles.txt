@@ -1,0 +1,310 @@
+
+/* Cool Sections */
+body {
+  background-color: #0e0e10;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+  }
+  
+  h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  }
+  
+  h4, h5 {
+  font-size: 12px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  
+  h5 {
+  color: #bf94ff;
+  }
+  
+  h6 {
+  font-size: 15px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  
+
+/* Cool Navigation Bar */
+/* .navbar-expand-lg {
+  display: flex !important;
+  justify-content: space-around;
+  flex-basis: auto;
+  transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navbar-nav > li {
+  padding-left: 25px;
+  padding-right: 25px;
+  }
+  
+  .navbar-custom {
+  background-color: #18181b;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .navbar-custom:hover {
+  background-color: #1f1f23;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+  } */
+  
+  /* Futuristic Profile Links */
+a {
+  color: #bf94ff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  }
+  
+  a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #bf94ff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+  }
+  
+  a:hover {
+  color: white;
+  }
+  
+  a:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+  }
+  
+  /* Futuristic Profile Color Inverse */
+d {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+  }
+  
+  d::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #bf94ff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+  }
+  
+  d:hover {
+  color: #bf94ff;
+  }
+  
+  d:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+  }
+  
+  /* Futuristic Edit Button */
+  .edit {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+  }
+  
+  .edit:hover {
+  color: #bf94ff !important;
+  }
+  
+  /* Futuristic Posts */
+  .post {
+  margin-top: 20px;
+  transition: background-color 0.3s ease-in-out;
+  }
+  
+  .post:hover {
+  background-color: #1f1f23;
+  }
+  
+  /* Futuristic New Post Section */
+  #new-post-section {
+  color: white;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid grey;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  }
+  
+  #new-post-section-background {
+  background-color: #0e0e10;
+  margin-right: 500px;
+  margin-left: 500px;
+  transition: background-color 0.3s ease-in-out, margin 0.3s ease-in-out;
+  }
+  
+  /* Futuristic Posted Posts */
+  .posts-section .post {
+  color: white;
+  border-radius: 30px;
+  padding: 15px;
+  border: 1px solid grey;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  }
+  
+  /* Futuristic Like Button */
+  .like-button {
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Futuristic Follower/Following Section */
+  .follower-following {
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+  }
+  
+  /* Futuristic Center Column */
+  .center-column {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgb(29, 27, 27);
+  border-radius: 10px;
+  box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  /* Sections */
+body {
+  background-color: #0e0e10;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  }
+  
+  h2 {
+  font-size: 12px;
+  }
+  
+  h4, h5 {
+  font-size: 12px;
+  color: white;
+  }
+  
+  h5 {
+  color: #bf94ff;
+  }
+  
+  h6 {
+  font-size: 15px;
+  color: white;
+  }
+  
+  /* Navigation Bar */
+  /* .navbar-expand-lg {
+  display: flex !important;
+  justify-content: space-around;
+  flex-basis: auto;
+  }
+  
+  .navbar-nav > li {
+  padding-left: 25px;
+  padding-right: 25px;
+  }
+  
+  .navbar-custom {
+  background-color: #18181b;
+  } */
+  
+  /* Profile Links */
+  a {
+  color: #bf94ff;
+  }
+  
+  a:hover {
+  color: white;
+  }
+  
+  /* Profile Color Inverse */
+  d {
+  color: white;
+  }
+  
+  d:hover {
+  color: #bf94ff;
+  }
+  
+  /* Edit Button */
+  .edit {
+  color: white !important;
+  }
+  
+  .edit:hover {
+  color: #bf94ff !important;
+  }
+  
+  /* Posts */
+  .post {
+  margin-top: 20px;
+  }
+  
+  .post:hover {
+  background-color: #1f1f23;
+  }
+  
+  /* New Post Section */
+  #new-post-section {
+  color: white;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid grey;
+  }
+  
+  #new-post-section-background {
+  background-color: #0e0e10;
+  margin-right: 500px;
+  margin-left: 500px;
+  }
+  
+  /* Posted Posts */
+  .posts-section .post {
+  color: white;
+  border-radius: 30px;
+  padding: 15px;
+  border: 1px solid grey;
+  }
+  
+  /* Like Button */
+  .like-button {
+  border-radius: 10px;
+  }
+  
+  /* Follower/Following Section */
+  .follower-following {
+  text-align: center;
+  }
+  
+  /* Center Column */
+  .center-column {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgb(29, 27, 27);
+  border-radius: 10px;
+  box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  

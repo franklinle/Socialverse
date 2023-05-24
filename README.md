@@ -1,7 +1,7 @@
 # socialverse
 https://socialverse-django.herokuapp.com/
 
-## Clone the project repository:
+### Clone the project repository:
 ```
 git clone https://github.com/franklinle/django-social-network-app.git
 ```

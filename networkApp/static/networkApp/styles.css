@@ -1,131 +1,303 @@
-/* sections */
-body {
-  background-color: #0e0e10;
+
+/* LAYOUT.HTML */
+
+/* Customize the navigation bar */
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 
-h1 {
-  text-align: center;
-}
-h2 {
-  text-align: center;
-  font-size: 12px;
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* current page title */
-h3 {
-  color: white;
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Style the page content */
+div {
+  margin: 20px;
+}
+
+/* Customize the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
   text-align: center;
 }
 
-h4 {
-  text-align: center;
-  font-size: 12px;
-  color: white;
+/* Add any additional styles below */
+
+
+/* PROFILE.HTML */
+
+/* Customize the new post section background */
+#new-post-section-background {
+  background-color: #f9f9f9;
+  padding: 20px;
 }
 
-h5 {
-  text-align: center;
-  font-size: 12px;
-  color: #bf94ff;
+/* Style the profile user heading */
+#profileUser {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
+/* Style the follow button */
+#follow-button {
+  margin-bottom: 10px;
+}
+
+/* Style the following and followers count */
 h6 {
-  color: white;
-  font-size: 15px;
-  text-align: center;
+  margin-bottom: 5px;
 }
 
-/* navigation bar */
-
-/* navbar text color */
-
-.navbar-expand-lg {
-  display: flex !important;
-  justify-content: space-around;
-  flex-basis: auto;
+#following-number,
+#followers-number {
+  font-weight: bold;
 }
 
-.navbar-nav > li {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-.navbar-custom {
-  background-color: #18181b;
-}
-
-/* profile name color */
-a {
-  color: #bf94ff;
-}
-
-a:hover {
-  color: white;
-}
-
-/* profile color inverse */
-d {
-  color: white;
-}
-
-d:hover {
-  color: #bf94ff;
-}
-
-/* edit button */
-.edit {
-  color: white !important;
-}
-
-.edit:hover {
-  color: #bf94ff !important;
-}
-
-/* Posts */
-.post {
+/* Style the posts section */
+.posts-section {
   margin-top: 20px;
 }
 
-.post:hover {
-  background-color: #1f1f23;
-}
-
-/* new post */
-#new-post-section {
-  color: white;
-  border-radius: 30px;
+.post {
+  background-color: #fff;
+  border: 1px solid #ccc;
   padding: 10px;
-  border: 1px solid grey;
+  margin-bottom: 10px;
 }
 
-#new-post-section-background {
-  background-color: #0e0e10;
-  margin-right: 500px;
-  margin-left: 500px;
+.post p {
+  margin: 0;
 }
 
-/* posted posts */
-.posts-section .post {
-  color: white;
-  border-radius: 30px;
-  padding: 15px;
-  border: 1px solid grey;
+.post-content {
+  margin-top: 5px;
 }
 
-/* like button */
+.text-muted {
+  color: #888;
+}
+
+.edit {
+  color: blue;
+  cursor: pointer;
+}
+
 .like-button {
-  border-radius: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 5px;
 }
 
-.follower-following {
-  text-align: center;
+/* Customize the pagination */
+.my-pagenav {
+  margin-top: 20px;
 }
 
-.center-column {
-  width: 400px;
-  margin: 20px auto;
+.pagination {
+  justify-content: center;
+}
+
+.page-item {
+  display: inline;
+}
+
+.page-link {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.page-link:hover {
+  background-color: #f2f2f2;
+}
+
+/* FOLLOWING.HTML */
+
+/* Customize the new post section background */
+#new-post-section-background {
+  background-color: #f9f9f9;
   padding: 20px;
-  background-color: rgb(29, 27, 27);
-  border-radius: 10px;
-  box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Style the "Following" heading */
+#new-post-section-background h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style the posts section */
+.posts-section {
+  margin-top: 20px;
+}
+
+.post {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post p {
+  margin: 0;
+}
+
+.post-content {
+  margin-top: 5px;
+}
+
+.text-muted {
+  color: #888;
+}
+
+.edit {
+  color: blue;
+  cursor: pointer;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+/* Customize the pagination */
+.my-pagenav {
+  margin-top: 20px;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.page-item {
+  display: inline;
+}
+
+.page-link {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.page-link:hover {
+  background-color: #f2f2f2;
+}
+
+/* INDEX.HTML */
+
+/* Customize the new post section background */
+#new-post-section-background {
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Style the "Home" heading */
+#new-post-section-background h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style the new post section */
+#new-post-section {
+  margin-bottom: 20px;
+}
+
+#new-post-section h2 {
+  margin-bottom: 10px;
+}
+
+.alert {
+  margin-bottom: 10px;
+}
+
+/* Style the submit button */
+#new-post-section input[type="submit"] {
+  margin-top: 10px;
+}
+
+/* Style the posts section */
+.posts-section {
+  margin-top: 20px;
+}
+
+.post {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post p {
+  margin: 0;
+}
+
+.post-content {
+  margin-top: 5px;
+}
+
+.text-muted {
+  color: #888;
+}
+
+.edit {
+  color: blue;
+  cursor: pointer;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+/* Customize the pagination */
+.my-pagenav {
+  margin-top: 20px;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.page-item {
+  display: inline;
+}
+
+.page-link {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.page-link:hover {
+  background-color: #f2f2f2;
 }

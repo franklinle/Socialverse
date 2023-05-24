@@ -3,11 +3,12 @@
 <html lang="en">
   <!-- tab name -->
   <head>
-    <title>{% block title %} Social Network {% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href="{% static "pico-1.5.9/css/pico.min.css" %}"> -->
+    <title>{% block title %} Socialverse {% endblock %}</title>
   </head>
   <!-- tab name end -->
-
-  {% block head %}{% endblock %}
 
   <!-- stylesheets -->
   <link
@@ -19,36 +20,38 @@
   <link href="{% static 'networkApp/styles.css' %}" rel="stylesheet" />
   <!-- stylesheets end -->
 
+  {% block head %}{% endblock %}
+
   <!-- navigation bar -->
-  <body class="d-flex flex-column min-vh-100">
+  <body>
     <!-- navbar position -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav>
       <!-- navbar item container -->
       <div>
-        <ul class="nav navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Feed</a>
+        <ul>
+          <li>
+            <a href="{% url 'index' %}">Feed</a>
           </li>
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'following' %}">For You</a>
+          <li>
+            <a href="{% url 'following' %}">For You</a>
           </li>
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'profile' user.username %}"
+          <li>
+            <a href="{% url 'profile' user.username %}"
               ><strong>{{ user.username }}</strong></a
             >
           </li>
           {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+          <li>
+            <a href="{% url 'logout' %}">Log out</a>
           </li>
           {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+          <li>
+            <a href="{% url 'login' %}">Log In</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          <li>
+            <a href="{% url 'register' %}">Register</a>
           </li>
           {% endif %}
         </ul>
@@ -56,8 +59,8 @@
       <!-- navbar item container end -->
     </nav>
     <!-- navbar position end -->
-    <div class="body">{% block body %} {% endblock %}</div>
-    <footer id="my-reference"></footer>
+    <div>{% block body %} {% endblock %}</div>
+    <!-- <footer></footer> -->
   </body>
   <!-- navigation bar end -->
 </html>

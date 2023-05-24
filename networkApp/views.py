@@ -45,8 +45,8 @@ def index(request):
 
         # Pagination of posts
         # Sort the posts from most recent to oldest, ten per page
-        allPosts = Posts.objects.order_by('time_posted')
-        paginator = Paginator(allPosts, 10)
+        allPosts = Posts.objects.order_by('-time_posted')
+        paginator = Paginator(allPosts, 100)
         page_number = request.GET.get('page', 1)
 
         try:
