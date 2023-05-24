@@ -1,4 +1,5 @@
 # socialverse
+https://socialverse-django.herokuapp.com/
 
 ## Clone the project repository:
 ```
@@ -16,4 +17,4 @@ python manage.py runserver
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://docs.djangoproject.com/en/3.2/topics/settings/).
+See [Django Documentation](https://docs.djangoproject.com/en/3.2/topics/settings/).
