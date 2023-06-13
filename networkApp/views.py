@@ -1,3 +1,4 @@
+import time
 from datetime import datetime
 import json
 
@@ -13,27 +14,33 @@ from django.urls import reverse
 
 from .models import User, UserFollowing, Posts
 
+
 class PostForm(forms.Form):
-    content = forms.CharField(label="", max_length=300, widget=forms.Textarea(attrs={"rows":5, "cols":40, "style": 'font-size: small'}))
+    content = forms.CharField(label="", max_length=300, widget=forms.Textarea(
+        attrs={"rows": 5, "cols": 40, "style": 'font-size: small'}))
 
 
 def index(request):
     """ All Posts """
+
+    start_time = time.time()  # Record the start time
+
     if request.method == "POST":
         form = PostForm(request.POST)
 
-        # check if form is valid
+        # check if form is valid    
         if form.is_valid():
 
             # check if the user is logged in
             if request.user.is_authenticated == False:
-                messages.error(request, "Please register or log in to create a post")
+                messages.error(
+                    request, "Please register or log in to create a post")
                 return HttpResponseRedirect(reverse("index"))
             else:
                 # save new post in the db, model already saves datetime
                 currentUser = request.user
                 content = form.cleaned_data["content"]
-                newPost = Posts(user_id=currentUser.id,content=content)
+                newPost = Posts(user_id=currentUser.id, content=content)
                 newPost.save()
 
                 return HttpResponseRedirect(reverse("index"))
@@ -60,14 +67,19 @@ def index(request):
         else:
             currentUserID = None
 
-        return render(request, "networkApp/index.html", {
-            "newPostForm": newPostForm,
-            "currentUserID": currentUserID,
-            "page_obj": page_obj
-        })
+        end_time = time.time()  # Record the end time
+        load_time = end_time - start_time
+        print(f"Page loaded in {load_time} seconds")  # Print the load time
+
+    return render(request, "networkApp/index.html", {
+        "newPostForm": newPostForm,
+        "currentUserID": currentUserID,
+        "page_obj": page_obj
+    })
 
 
 def loginView(request):
+
     if request.method == "POST":
 
         # Attempt to sign user in
@@ -136,8 +148,9 @@ def following(request):
 
     # Pagination of posts
     # Sort the posts from most recent to oldest
-    allPosts = Posts.objects.filter(user__in=follower_ids).order_by('-time_posted')
-    paginator = Paginator(allPosts, 2) 
+    allPosts = Posts.objects.filter(
+        user__in=follower_ids).order_by('-time_posted')
+    paginator = Paginator(allPosts, 2)
     page_number = request.GET.get('page', 1)
 
     try:
@@ -155,7 +168,8 @@ def profile(request, user):
     """ Profile page for a user """
     # Get posts for current user
     profileUserID = User.objects.get(username=user).id
-    userPosts = Posts.objects.filter(user_id=profileUserID).order_by('-time_posted')
+    userPosts = Posts.objects.filter(
+        user_id=profileUserID).order_by('-time_posted')
 
     # Paginate user posts, ten per page
     paginator = Paginator(userPosts, 10)
@@ -180,7 +194,8 @@ def profile(request, user):
         else:
             followButton = True
             try:
-                followCheck = UserFollowing.objects.get(user_id=currentUserID, following_user_id=profileUserID)
+                followCheck = UserFollowing.objects.get(
+                    user_id=currentUserID, following_user_id=profileUserID)
                 if followCheck:
                     following = True
             except UserFollowing.DoesNotExist:
@@ -190,7 +205,7 @@ def profile(request, user):
         followButton = False
 
     # Display follower/following count
-    profUser = User.objects.get(id=profileUserID) 
+    profUser = User.objects.get(id=profileUserID)
     followingCount = len(profUser.following.all())
     followerCount = len(profUser.followers.all())
 
@@ -211,7 +226,7 @@ def editPost(request):
     if request.method == "POST":
         post_id = int(request.POST.get('postID', ''))
         newContents = request.POST.get("content", "")
-        
+
         # Update post w/ given post ID with new contents
         p = Posts.objects.get(id=post_id)
         p.content = newContents  # change field
@@ -246,14 +261,13 @@ def toggleFollow(request):
                 follow_count = True
                 UserFollowing.objects.create(
                     user_id=follower_id, following_user_id=followee_id)
-                
-                
+
             # Pass back success
             return HttpResponse(json.dumps({'response': 'success', "follow_count": follow_count}), content_type='application/json')
         else:
             return HttpResponse("You must be signed in to follow another user")
 
-        
+
 def toggleLike(request):
     """ Update like / like count """
     if request.method == "POST":
@@ -271,7 +285,7 @@ def toggleLike(request):
                 post.likes.add(int(request.user.id))
                 post.like_count = F('like_count') + 1
                 post.save()
-            
+
             post.refresh_from_db()
             result = post.like_count
             return HttpResponse(json.dumps({"result": result, "postid": id}))
