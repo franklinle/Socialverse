@@ -1,4 +1,4 @@
-# socialverse
+# Socialverse
 https://socialverse-django.herokuapp.com/
 
 ### Clone the project repository:
